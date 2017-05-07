@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    max-active: 5
+    pool-name: SpringBootHikariCP
+    maximum-pool-size: 5
+    minimum-idle: 2
+    max-lifetime: 2000000
+    connection-timeout: 30000
+    idle-timeout: 500
+    pool-prepared-statements: true
+    max-open-prepared-statements: 10
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+  http:
+    encoding:
+      force: true
+
+logging:
+  path: /logs/mi
