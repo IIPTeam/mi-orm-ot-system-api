@@ -10,11 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.Api;
-
 @RestController
 @RequestMapping("/process/ot")
-@Api("/process/ot")
 public class OTController {
 	
 	@Autowired

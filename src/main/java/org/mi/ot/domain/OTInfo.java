@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@Entity
+@Entity(name="staff_ot")
 public class OTInfo implements Serializable{
 
 	/**
@@ -26,30 +26,30 @@ public class OTInfo implements Serializable{
 
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
-	@Column(length=8, nullable=false)
-	private long staffID;
+	@Column(length=8)
+	private Long staffID;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
 	@Valid
-	@Column(nullable=false)
+	@Column
 	private Date date;
 	
-	@Column(nullable=false, scale=1)
+	@Column(scale=1)
 	private BigDecimal hours;
 	
 	@Column(length=400)
 	private String reason;
 	
 	@Column
-	private long supportProject = -1;
-	
-	@Column(nullable=false)
-	private long currentProject;
+	private Long supportProject;
 	
 	@Column
-	private long approval = -1;
+	private Long currentProject;
+	
+	@Column
+	private Long approval;
 	
 	@Column(updatable=false)
 	private Date createTime = Calendar.getInstance().getTime();
@@ -60,19 +60,19 @@ public class OTInfo implements Serializable{
 	@Version
 	private long version;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public long getStaffID() {
+	public Long getStaffID() {
 		return staffID;
 	}
 
-	public void setStaffID(long staffID) {
+	public void setStaffID(Long staffID) {
 		this.staffID = staffID;
 	}
 
@@ -100,27 +100,31 @@ public class OTInfo implements Serializable{
 		this.reason = reason;
 	}
 
-	public long getSupportProject() {
+	public Long getSupportProject() {
 		return supportProject;
 	}
 
-	public void setSupportProject(long supportProject) {
+	public void setSupportProject(Long supportProject) {
 		this.supportProject = supportProject;
 	}
 
-	public long getCurrentProject() {
+	public Long getCurrentProject() {
 		return currentProject;
 	}
 
-	public void setCurrentProject(long currentProject) {
+	public void setCurrentProject(Long currentProject) {
 		this.currentProject = currentProject;
 	}
 
-	public long getApproval() {
+	public Long getApproval() {
 		return approval;
 	}
 
-	public void setApproval(long approval) {
+	public void setApproval(Long approval) {
 		this.approval = approval;
+	}
+	
+	public long getVersion(){
+		return version;
 	}
 }
