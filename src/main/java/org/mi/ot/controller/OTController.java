@@ -1,5 +1,7 @@
 package org.mi.ot.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.mi.ot.domain.OTInfo;
@@ -25,5 +27,10 @@ public class OTController {
 	@RequestMapping(method = RequestMethod.POST)
 	public OTInfo add(@RequestBody OTInfo ot) {
 		return otService.add(ot);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public List<OTInfo> list(){
+		return otService.list();
 	}
 }
